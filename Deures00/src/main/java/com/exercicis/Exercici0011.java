@@ -9,7 +9,7 @@ public class Exercici0011 {
     public static ArrayList<String> escullNomsAleatoris(ArrayList<String> noms, int quantitat) {
 
         if (quantitat > noms.size()) {
-            System.out.println("La quantitat no pot ser més gran que " + noms.size() + ".");
+            throw new IllegalArgumentException("La quantitat no pot ser més gran que " + noms.size() + ".");
         }
 
         ArrayList<String> nombres = new ArrayList<>();
@@ -23,31 +23,48 @@ public class Exercici0011 {
             int index = random.nextInt(copiaNoms.size());
             nombres.add(copiaNoms.remove(index));
         }
-        return new ArrayList<>();
+        return nombres;
     }
    
     public static ArrayList<String> nomsAcabenVocal(ArrayList<String> noms) {
-        /*
-            TODO: Resol aquí la funció
-        */
-        return new ArrayList<>();
+        ArrayList<String> nomsVocals = new ArrayList<>();
+        for (String nom : noms) {
+            char ultimaLetra = nom.toLowerCase().charAt(nom.length() - 1);
+            if ("aeiou".indexOf(ultimaLetra) >= 0) {
+                nomsVocals.add(nom);
+            }
+        }
+        return nomsVocals;
     }
 
     public static ArrayList<String> nomsCompostos(ArrayList<String> noms) {
-        /*
-            TODO: Resol aquí la funció
-        */
-        return new ArrayList<>();
+        ArrayList<String> nomsCompostos = new ArrayList<>();
+        for (String nom : noms) {
+            if (nom.contains(" ")) {
+                nomsCompostos.add(nom);
+            }
+        }
+        return nomsCompostos;
     }
 
     public static void main(String[] args) {
 
-        ArrayList<String> noms = new ArrayList<>(Arrays.asList(
-            "Mario", "Princess Peach", "Wario", "Luigi", "Iggy Koopa", "Toad", "Yoshi", "Donkey Kong", "Birdo"
-        ));
+        ArrayList<String> noms = new ArrayList<>(Arrays.asList("Mario", "Princess Peach", "Wario", "Luigi", "Iggy Koopa", "Toad", "Yoshi", "Donkey Kong", "Birdo"));
 
-        /*
-            TODO: Resol aquí l'exercici
-        */
+        ArrayList<String> nomsAleatoris = escullNomsAleatoris(noms, 5);
+        System.out.println("Noms escollits a l'atzar: " + nomsAleatoris);
+        try {
+            ArrayList<String> seleccionatsError = escullNomsAleatoris(noms, 25);
+            System.out.println("Noms escollits: " + seleccionatsError);
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        ArrayList<String> nomsVocal = nomsAcabenVocal(noms);
+        System.out.println("Noms que acaben amb vocal: " + nomsVocal);
+
+        ArrayList<String> nomsCompostos = nomsCompostos(noms);
+        System.out.println("Noms compostos: " + nomsCompostos);
     }
 }
