@@ -24,9 +24,15 @@ public class Exercici0008 {
         // Introducimos un numero para determinar el rango
         System.out.print("Introdueix un número: ");
         Integer numero = scanner.nextInt();
+
         // Generamos (llamando a la funcion) la lista con los impares
-        ArrayList<Integer> impares = generaImparells(numero);
-        System.out.println("Numeros imparells entre 2 i " + numero + ": " + impares); // Mostramos la lista con los impares entre 2 y el numero introducido
+        if (numero <= 2) {
+            System.out.println("No hi ha nombres imparells entre 2 i " + numero);
+        }
+        else {
+            ArrayList<Integer> impares = generaImparells(numero);
+            System.out.println("Nombres imparells entre 2 i " + numero + ": " + impares); // Mostramos la lista con los impares entre 2 y el numero introducido
+        }
 
         scanner.close();
     }

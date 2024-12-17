@@ -10,14 +10,16 @@ public class Exercici0002 {
         scanner.useLocale(Locale.US);
 
         System.out.print("Escriu el valor en Euros: ");
-        Double euros = scanner.nextDouble();
+        String eurosInput = scanner.next();
+        Double euros = Double.parseDouble(eurosInput.replace(",", "."));
 
         System.out.print("Escriu la tasa de conversió (ex: 1.25): ");
-        Double tasa = scanner.nextDouble();
+        String tasaInput = scanner.next();
+        Double tasa = Double.parseDouble(tasaInput.replace(",", "."));
 
-        Double conversion = euros * tasa;
+        Double dolares = euros * tasa;
 
-        System.out.printf(localeUS, "El valor de %.2f€ són %.2f$%n", euros, conversion);
+        System.out.printf(localeUS, "El valor de %.2f€ són %.2f$%n", euros, dolares);
 
         scanner.close();
     }

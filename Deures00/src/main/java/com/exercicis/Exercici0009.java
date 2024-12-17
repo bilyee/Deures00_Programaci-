@@ -7,7 +7,8 @@ public class Exercici0009 {
     public static void dibuixarRectangle(int ample, int alt) {
         // Creamos una condicion de que si es menor a 2x2, muestre un mensaje de error
         if (ample < 2 || alt < 2) {
-            System.out.println("Error. Com a minim ha de ser 2 per alt y 2 per amplada");
+            System.out.println("L'ample i l'alt han de ser com a mínim 2.");
+            return;
         }
         // Repetimos tantas veces el signo "*" como hayamos puesto en amplada para crear la parte de arriba
         System.out.println("*".repeat(ample));
@@ -25,7 +26,7 @@ public class Exercici0009 {
         // Introducimos la amplada y la altura del rectangulo
         System.out.print("Introdueix l'ample del rectangle: ");
         Integer ample = scanner.nextInt();
-        System.out.print("Introdueix l'altura del rectangle: ");
+        System.out.print("Introdueix l'alt del rectangle: ");
         Integer alt = scanner.nextInt();
         // Mostramos el resultado llamando a la funcion con los parametros
         System.out.println("Resultat: ");

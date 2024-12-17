@@ -9,7 +9,7 @@ public class Exercici0000 {
         System.out.print("Escriu el primer número: ");
         Integer num1 = scanner.nextInt();
 
-        System.out.print("Escriu el segón número: ");
+        System.out.print("Escriu el segon número: ");
         Integer num2 = scanner.nextInt();
 
         Integer resta = num1 - num2;

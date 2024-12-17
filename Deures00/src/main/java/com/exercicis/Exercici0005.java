@@ -37,18 +37,22 @@ public class Exercici0005 {
 
         // Creamos una lista con ejemplos de palindromos y uno que no
         String[] ejemplos = {
-            "radar",
-            "level",
-            "Dábale arroz a la zorra el abad",
-            "No lemon no melon",
-            "sometemos",
-            "Hola mundo" // No palíndromo
+            "Anul·la la lluna",
+            "Atrapa la lluna",
+            "Atrapa'l o l'aparta",
+            "Aparta'l o atrapa'l",
+            "No sap pas on",
+            "On sap pas qui",
+            "Tramaran anar a Mart",
+            "A Mart trobaràn art",
+            "Un pop nu",
+            "Nu pop un"
         };
 
         // Creamos un bucle para mostrar palabra por palabra y que nos diga si es palindromo o no con un mensaje sencillo
         for (String texto : ejemplos) {
             Boolean Palindrom = isPalindrom(texto);
-            System.out.println(texto + " (" + (Palindrom ? "Si" : "No") + " )");
+            System.out.println(texto + " (" + (Palindrom ? "Si" : "No") + ")");
         }
     }
 }

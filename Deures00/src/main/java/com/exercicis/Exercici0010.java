@@ -51,16 +51,16 @@ public class Exercici0010 {
     public static void main(String[] args) {
 
         ArrayList<Integer> listaAleatoria = generarNumerosAleatoris(10, 0, 99);
-        System.out.println("Llista Inicial: " + listaAleatoria);
+        System.out.println("Llista inicial: " + listaAleatoria);
 
         ArrayList<Integer> listaMultiplicada = multiplicarPerDos(listaAleatoria);
         System.out.println("Llista multiplicada per 2: " + listaMultiplicada);
 
         ArrayList<Integer> listaImpares = filtrarImparells(listaAleatoria);
-        System.out.println("Llista només amb numeros imparells: " + listaImpares);
+        System.out.println("Llista només amb números imparells: " + listaImpares);
 
         ArrayList<Double> listaDividida = dividirPerDos(listaImpares);
-        System.out.println("Llista imparells dividits entre 2: " + listaDividida);
+        System.out.println("Llista imparells dividits per 2: " + listaDividida);
 
     }
 }

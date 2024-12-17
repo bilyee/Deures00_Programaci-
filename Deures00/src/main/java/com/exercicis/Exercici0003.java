@@ -12,7 +12,6 @@ public class Exercici0003 {
 
         Scanner scanner = new Scanner(System.in);
         Locale localeUS = Locale.US;
-        scanner.useLocale(Locale.US);
 
         System.out.print("Introdueix el preu base: ");
         Double preuBase = scanner.nextDouble();

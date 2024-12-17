@@ -1,22 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.exercicis.TestExercici0010
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.088 s <<< FAILURE! -- in com.exercicis.TestExercici0010
-com.exercicis.TestExercici0010.testMainFunction -- Time elapsed: 0.017 s <<< FAILURE!
-org.opentest4j.AssertionFailedError: 
->>>>>>>>>> Diff found >>>>>>>>>>
-First difference at position 7.
-Received: Llista I<difference>
-Expected: Llista inicial: [80, 69, 2, 49, 27, 50, 28, 80, 53, 46]
-<<<<<<<<<< Diff end <<<<<<<<<<
- ==> expected: <true> but was: <false>
-	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
-	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:214)
-	at com.exercicis.TestExercici0010.testMainFunction(TestExercici0010.java:114)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 s -- in com.exercicis.TestExercici0010
