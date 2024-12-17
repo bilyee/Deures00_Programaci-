@@ -5,23 +5,30 @@ import java.util.*;
 public class Exercici0013 {
     
     public static int generateId(ArrayList<HashMap<String, Object>> cities) {
-        /*
-            TODO: Resol aquí la funció
-        */
-        return 1000;
+        Random random = new Random();
+        int newId;
+        do {
+            newId = 1000 + random.nextInt(9000);
+        }
+        while (idExists(cities, newId));
+        return newId;
     }
     
     public static boolean idExists(ArrayList<HashMap<String, Object>> cities, int id) {
-        /*
-            TODO: Resol aquí la funció
-        */
+        for (HashMap<String, Object> city : cities) {
+            if ((int) city.get("id") == id) {
+                return true;
+            }
+        }
         return false;
     }
 
     public static int getIdByName(ArrayList<HashMap<String, Object>> cities, String name) {
-        /*
-            TODO: Resol aquí la funció
-        */
+        for (HashMap<String, Object> city : cities) {
+            if (city.get("name").equals(name)) {
+                return (int) city.get("id");
+            }
+        }
         return -1; // -1 si no troba la ciutat
     }
     
