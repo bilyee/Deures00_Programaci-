@@ -61,25 +61,108 @@ public class Exercici0014 {
     }
 
     public static String getMessage(String winner, String playerMove, String pcMove) {
-        /*
-            TODO: Resol aquí la funció
-        */
-        return ""; 
+        if (winner.equals("DRAW")) {
+            return "Empat! Els dos heu triat " + playerMove + "!";
+        }
+        else if (winner.equals("PLAYER")) {
+            return "Molt bé! " + playerMove + " guanya a " + pcMove + "!";
+        }
+        else {
+            return "Ho sento! " + pcMove + " guanya a " + playerMove + "!";
+        }
     }
 
     public static void showStats(HashMap<String, Integer> stats) {
-        /*
-            TODO: Resol aquí la funció
-        */
+        Integer totalGames = stats.get("PEDRA_COUNT") + stats.get("PAPER_COUNT") + stats.get("TISORES_COUNT");
+        Integer totalWins = stats.get("PEDRA_WINS") + stats.get("PAPER_WINS") + stats.get("TISORES_WINS");
+
+        String moveMostUsed = "PEDRA";
+        Integer maxCount = stats.get("PEDRA_COUNT");
+
+        if (stats.get("PAPER_COUNT") > maxCount) {
+            moveMostUsed = "PAPER";
+            maxCount = stats.get("PAPER_COUNT");
+        }
+        if (stats.get("TISORES_COUNT") > maxCount) {
+            moveMostUsed = "TISORES";
+            maxCount = stats.get("TISORES_COUNT");
+        }
+
+        String bestMove = "PEDRA";
+        Double bestWinRate = stats.get("PEDRA_COUNT") > 0 ? 
+            (double)stats.get("PEDRA_WINS") / stats.get("PEDRA_COUNT") * 100 : 0;
+        
+        Double paperWinRate = stats.get("PAPER_COUNT") > 0 ? (double)stats.get("PAPER_WINS") / stats.get("PEDRA_COUNT") * 100 : 0;
+        if (paperWinRate > bestWinRate) {
+            bestMove = "PAPER";
+            bestWinRate = paperWinRate;
+        }
+
+        Double tisoresWinRate = stats.get("TISORES_COUNT") > 0 ? (double)stats.get("TISORES_WINS") / stats.get("TISORES_COUNT") * 100 : 0;
+        if (tisoresWinRate > bestWinRate) {
+            bestMove = "TISORES";
+            bestWinRate = tisoresWinRate;
+        }
+
+        System.out.println("Estadístiques finals:");
+        System.out.println("------------------");
+        System.out.println("Total partides: " + totalGames);
+        System.out.printf(Locale.US, "Victòries: %.1f%%\n", totalWins > 0 ? (double)totalWins / totalGames * 100 : 0);
+        System.out.println("Moviment més utilitzat: " +  moveMostUsed + " (" + maxCount + " vegades)");
+        System.out.printf(Locale.US, "Moviment més victoriós: %s (%d%% victòries)\n", bestMove, Math.round(bestWinRate));
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);  // Definim l'scanner al principi
         try {
-            /*
-                TODO: Resol aquí l'exercici
-            */
-        } finally {
+            HashMap<String, Integer> stats = new HashMap<>();
+            stats.put("PEDRA_COUNT", 0);
+            stats.put("PAPER_COUNT", 0);
+            stats.put("TISORES_COUNT", 0);
+            stats.put("PEDRA_WINS", 0);
+            stats.put("PAPER_WINS", 0);
+            stats.put("TISORES_WINS", 0);
+
+            Integer playerScore = 0;
+            Integer pcScore = 0;
+
+            System.out.println("Benvingut a Pedra, Paper, Tisores!");
+            System.out.println("El primer en arribar a 3 victòries guanya!\n");
+
+            while (playerScore < 3 && pcScore < 3) {
+                String playerMove = getPlayerMove(scanner);
+                if (playerMove == null) {
+                    break;
+                }
+
+                String pcMove = getMovePC();
+                System.out.println("PC tria: " + pcMove);
+
+                String winner = getWinner(playerMove, pcMove);
+                System.out.println(getMessage(winner, playerMove, pcMove));
+
+                if (winner.equals("PLAYER")) {
+                    playerScore++;
+                }
+                else if (winner.equals("PC")) {
+                    pcScore++;
+                }
+
+                System.out.println(getScoreMessage(playerScore, pcScore));
+                System.out.println();
+
+                updateStats(stats, playerMove, winner.equals("PLAYER"));
+            }
+
+            if (playerScore >= 3 || pcScore >= 3) {
+                System.out.println(getWinnerMessage(playerScore >= 3));
+                System.out.println();
+            }
+
+            showStats(stats);
+        } 
+        
+        finally {
             scanner.close();  // Tanquem l'scanner al final
         }
     }
