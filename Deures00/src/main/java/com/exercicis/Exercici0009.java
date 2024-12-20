@@ -29,7 +29,7 @@ public class Exercici0009 {
         System.out.print("Introdueix l'alt del rectangle: ");
         Integer alt = scanner.nextInt();
         // Mostramos el resultado llamando a la funcion con los parametros
-        System.out.println("Resultat: ");
+        System.out.println("Resultat:");
         dibuixarRectangle(ample, alt);
 
         scanner.close();
